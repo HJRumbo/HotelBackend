@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Hotel.Application\Hotel.Core.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Hotel.Identity\Hotel.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Hotel.Infrastructure.Shared\Hotel.Infrastructure.Utils.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Hotel.Persistence\Hotel.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
