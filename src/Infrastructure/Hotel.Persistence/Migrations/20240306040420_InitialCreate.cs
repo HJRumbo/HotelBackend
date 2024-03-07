@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -156,8 +157,8 @@ namespace Hotel.Infrastructure.Persistence.Migrations
                     RoomTypeId = table.Column<int>(type: "int", nullable: false),
                     Floor = table.Column<int>(type: "int", nullable: false),
                     RoomNumber = table.Column<int>(type: "int", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
                     HotelId = table.Column<int>(type: "int", nullable: false),
-                    HotelClassId = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -166,11 +167,6 @@ namespace Hotel.Infrastructure.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rooms", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Rooms_Hotels_HotelClassId",
-                        column: x => x.HotelClassId,
-                        principalTable: "Hotels",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Rooms_Hotels_HotelId",
                         column: x => x.HotelId,
@@ -235,6 +231,7 @@ namespace Hotel.Infrastructure.Persistence.Migrations
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     GenderId = table.Column<int>(type: "int", nullable: false),
                     DocumentTypeId = table.Column<int>(type: "int", nullable: false),
+                    DocumentNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BookingId = table.Column<int>(type: "int", nullable: false),
@@ -300,11 +297,6 @@ namespace Hotel.Infrastructure.Persistence.Migrations
                 name: "IX_Hotels_CityId",
                 table: "Hotels",
                 column: "CityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rooms_HotelClassId",
-                table: "Rooms",
-                column: "HotelClassId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rooms_HotelId",

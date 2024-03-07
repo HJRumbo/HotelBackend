@@ -9,8 +9,8 @@ namespace Hotel.Infrastructure.Identity.Seeds
         {
             var defaultAdmin = new IdentityUser
             {
-                UserName = "hotelAdmin",
-                Email = "hotelAdmin@mail.com",
+                UserName = "agente",
+                Email = "agrentehotel@mail.com",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };

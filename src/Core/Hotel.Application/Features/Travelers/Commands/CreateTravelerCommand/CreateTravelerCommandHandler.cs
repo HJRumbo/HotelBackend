@@ -39,7 +39,7 @@ namespace Hotel.Core.Application.Features.Travelers.Commands.CreateTravelerComma
 
             await _unitOfWork.SaveChangesAsync();
 
-            return new Response<int>(travelerRegistred.Id);
+            return new Response<int>(travelerRegistred.Id, "Viejaro registrado correctamente. ");
         }
 
         private async Task ValidateTravelerData(int documentTypeId, int genderId)

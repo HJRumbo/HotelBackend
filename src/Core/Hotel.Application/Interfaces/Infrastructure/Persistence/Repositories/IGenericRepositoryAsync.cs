@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Hotel.Core.Application.Interfaces.Infrastructure.Persistence
+namespace Hotel.Core.Application.Interfaces.Infrastructure.Persistence.Repositories
 {
     public interface IGenericRepositoryAsync<TEntity> where TEntity : class
     {

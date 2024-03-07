@@ -1,6 +1,7 @@
 ﻿using Hotel.Core.Application.Features.Hotels.Commands.CreateHotelCommand;
 using Hotel.Core.Application.Features.Hotels.Commands.UpdateHotelCommand;
 using Hotel.Core.Application.Features.Hotels.Queries.GetAllHotelsQuery;
+using Hotel.Core.Application.Features.Hotels.Queries.GetFilteredHotelsQuery;
 using Hotel.Core.Domain.Enums;
 using Hotel.WebApi.Controllers.Base;
 using Microsoft.AspNetCore.Authorization;
@@ -14,6 +15,12 @@ namespace Hotel.WebApi.Controllers
         public async Task<IActionResult> GetAsync()
         {
             return Ok(await Mediator!.Send(new GetAvailableHotelsQuery()));
+        }
+
+        [HttpGet("GetFilteredHotels")]
+        public async Task<IActionResult> GetAsync([FromQuery] GetFilteredHotelsQuery request)
+        {
+            return Ok(await Mediator!.Send(request));
         }
 
         [HttpPost]

@@ -28,7 +28,7 @@ namespace Hotel.Core.Application.Features.Hotels.Commands.CreateHotelCommand
 
             await _unitOfWork.SaveChangesAsync();
 
-            return new Response<int>(hotelRegistred.Id);
+            return new Response<int>(hotelRegistred.Id, "Hotel guardado correctamente. ");
         }
 
         private async Task ValidateCity(int cityId)

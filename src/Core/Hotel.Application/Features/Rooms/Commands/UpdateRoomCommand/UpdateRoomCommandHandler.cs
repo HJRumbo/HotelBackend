@@ -33,7 +33,7 @@ namespace Hotel.Core.Application.Features.Rooms.Commands.UpdateRoomCommand
 
             await _unitOfWork.SaveChangesAsync();
 
-            return new Response<int>(oldRoom.Id);
+            return new Response<int>(oldRoom.Id, "Habitación modificada correctamente. ");
         }
 
         private async Task ValidateRoomData(int hotelId, int roomTypeId)

@@ -6,7 +6,7 @@ namespace Hotel.WebApi.Controllers
 {
     public class TravelerController : BaseWebApiController
     {
-        [HttpPost]
+        [HttpPost("SignUp")]
         public async Task<IActionResult> Post(CreateTravelerCommand request)
         {
             var response = await Mediator!.Send(request);

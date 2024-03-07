@@ -29,7 +29,7 @@ namespace Hotel.Core.Application.Features.Hotels.Commands.UpdateHotelCommand
 
             await _unitOfWork.SaveChangesAsync();
 
-            return new Response<int>(oldHotel.Id);
+            return new Response<int>(oldHotel.Id, "Hotel modificado correctamente. ");
         }
 
         private async Task ValidateCity(int cityId)

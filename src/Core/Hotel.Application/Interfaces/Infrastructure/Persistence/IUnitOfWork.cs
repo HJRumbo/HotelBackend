@@ -1,11 +1,12 @@
 ﻿
+using Hotel.Core.Application.Interfaces.Infrastructure.Persistence.Repositories;
 using Hotel.Core.Domain.Entities;
 
 namespace Hotel.Core.Application.Interfaces.Infrastructure.Persistence
 {
     public interface IUnitOfWork
     {
-        IGenericRepositoryAsync<HotelClass> Hotels { get; }
+        IHotelRepository Hotels { get; }
         IGenericRepositoryAsync<Traveler> Travelers { get; }
         IGenericRepositoryAsync<DocumentType> DocumentTypes { get; }
         IGenericRepositoryAsync<Gender> Genders { get; }

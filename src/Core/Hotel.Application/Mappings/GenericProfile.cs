@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Hotel.Core.Application.Dtos.Authentication;
 using Hotel.Core.Application.Dtos.Hotel;
+using Hotel.Core.Application.Dtos.Lists;
 using Hotel.Core.Application.Features.Bookings.Commands.CreateBookingCommand;
 using Hotel.Core.Application.Features.Hotels.Commands.CreateHotelCommand;
 using Hotel.Core.Application.Features.Rooms.Commands.CreateRoomCommand;
@@ -15,6 +16,10 @@ namespace Hotel.Core.Application.Mappings
         {
             #region Entities to Dtos
             CreateMap<HotelClass, HotelDto>();
+            CreateMap<City, CityDto>();
+            CreateMap<DocumentType, DocumentTypeDto>();
+            CreateMap<Gender, GenderDto>();
+            CreateMap<RoomType, RoomTypeDto>();
             #endregion
 
             #region Commands to Entities

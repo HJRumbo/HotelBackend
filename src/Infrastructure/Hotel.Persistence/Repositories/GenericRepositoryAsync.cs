@@ -1,4 +1,4 @@
-﻿using Hotel.Core.Application.Interfaces.Infrastructure.Persistence;
+﻿using Hotel.Core.Application.Interfaces.Infrastructure.Persistence.Repositories;
 using Hotel.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;

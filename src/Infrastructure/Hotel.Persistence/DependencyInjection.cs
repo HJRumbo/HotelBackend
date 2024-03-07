@@ -1,4 +1,5 @@
 ﻿using Hotel.Core.Application.Interfaces.Infrastructure.Persistence;
+using Hotel.Core.Application.Interfaces.Infrastructure.Persistence.Repositories;
 using Hotel.Infrastructure.Persistence.Context;
 using Hotel.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace Hotel.Infrastructure.Persistence
 
             #region Services
             services.AddScoped(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
+            services.AddScoped<IHotelRepository, HotelRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             #endregion
 

@@ -1,4 +1,5 @@
 ﻿using Hotel.Core.Application.Interfaces.Infrastructure.Persistence;
+using Hotel.Core.Application.Interfaces.Infrastructure.Persistence.Repositories;
 using Hotel.Core.Domain.Entities;
 using Hotel.Infrastructure.Persistence.Context;
 using Hotel.Infrastructure.Persistence.Repositories;
@@ -8,7 +9,7 @@ namespace Hotel.Infrastructure.Persistence
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
-        public IGenericRepositoryAsync<HotelClass> Hotels { get; }
+        public IHotelRepository Hotels { get; }
         public IGenericRepositoryAsync<Traveler> Travelers { get; }
         public IGenericRepositoryAsync<DocumentType> DocumentTypes { get; }
         public IGenericRepositoryAsync<Gender> Genders { get; }
@@ -20,7 +21,7 @@ namespace Hotel.Infrastructure.Persistence
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
-            Hotels = new GenericRepositoryAsync<HotelClass>(_context);
+            Hotels = new HotelRepository(_context);
             Travelers = new GenericRepositoryAsync<Traveler>(_context);
             DocumentTypes = new GenericRepositoryAsync<DocumentType>(_context);
             Genders = new GenericRepositoryAsync<Gender>(_context);

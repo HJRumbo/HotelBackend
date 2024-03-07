@@ -59,9 +59,15 @@ namespace Hotel.Core.Application.Features.Bookings.Commands.CreateBookingCommand
 
             await _unitOfWork.SaveChangesAsync();
 
+            
             var sentEmail = await SendEmail(user.Email, traveler.Name + " " + traveler.LastName, registredBooking);
 
-            return new Response<int>(registredBooking.Id);
+            var generalMessage = "Reserva guardada correctamente";
+
+            var message = !sentEmail ? $"{generalMessage}, pero no se pudo enviar el correo electrónico. " : 
+                                       $"{generalMessage}. ";
+
+            return new Response<int>(registredBooking.Id, message);
         }
 
         private async Task ValidateBookingData(CreateBookingCommand request)
@@ -83,7 +89,7 @@ namespace Hotel.Core.Application.Features.Bookings.Commands.CreateBookingCommand
                 errors.Add($"La habitación cuenta con capacidad para {room.Capacity} personas. ");
             }
 
-            var bookedRoom = await _unitOfWork.Bookings.Where(b => b.RoomId == request.RoomId && (request.CheckIn >= b.CheckIn && request.CheckIn <= b.CheckOut));
+            var bookedRoom = await _unitOfWork.Bookings.Where(b => b.RoomId == request.RoomId && b.CheckIn <= request.CheckOut && b.CheckOut >= request.CheckIn);
 
             if (bookedRoom.Any())
             {

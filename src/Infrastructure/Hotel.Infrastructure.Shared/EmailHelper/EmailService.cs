@@ -9,7 +9,7 @@ namespace Hotel.Infrastructure.Utils.EmailHelper
 {
     public class EmailService : IEmailService
     {
-        public SendGridSettings _SendGridSettings { get; }
+        private readonly SendGridSettings _SendGridSettings;
 
         public EmailService(IOptions<SendGridSettings> SendGridSettings)
         {

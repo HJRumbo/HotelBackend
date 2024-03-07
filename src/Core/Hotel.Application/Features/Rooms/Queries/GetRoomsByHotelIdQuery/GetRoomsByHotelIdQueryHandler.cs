@@ -19,6 +19,7 @@ namespace Hotel.Core.Application.Features.Rooms.Queries.GetRoomsByHotelIdQuery
             var rooms = await _unitOfWork.Rooms.Where(x => x.Available && x.HotelId == request.HotelId);
             var roomsDto = rooms.Select(r => new RoomDto
             {
+                Id = r.Id,
                 Name = r.Name,
                 Available = r.Available,
                 BaseCost = r.BaseCost,

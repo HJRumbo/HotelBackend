@@ -2,6 +2,7 @@
 {
     public class RoomDto
     {
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public bool Available { get; set; }
         public double BaseCost { get; set; }
